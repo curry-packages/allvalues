@@ -1,0 +1,22 @@
+{
+    "name": "allvalues",
+    "version": "3.0.0",
+    "author": "Michael Hanus <mh@informatik.uni-kiel.de>",
+    "synopsis": "Libraries with operations to strongly encapsulate non-deterministic computations",
+    "category": [ "Logic", "Programming" ],
+    "license": "BSD-3-Clause",
+    "licenseFile": "LICENSE",
+    "dependencies": {
+        "base"         : ">= 3.0.0, < 4.0.0",
+        "searchtree"   : ">= 3.0.0, < 4.0.0"
+    },
+    "exportedModules": [ "Control.AllValues" ],
+    "testsuite": {
+        "src-dir": "test",
+        "modules": [ "TestAllValues" ]
+    },
+    "source": {
+        "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/allvalues.git",
+        "tag": "$version"
+    }
+}
