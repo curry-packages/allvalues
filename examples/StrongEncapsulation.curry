@@ -3,7 +3,7 @@
 --- of the operators in `Control.AllValues`. A detailed discussion
 --- can be found in:
 --- 
---- Bernd Braßel, Michael Hanus, Frank Huch:
+--- Bernd Brassel, Michael Hanus, Frank Huch:
 --- Encapsulating Non-Determinism in Functional Logic Computations
 --- J. Funct. Log. Program. 2004 (2004)
 --- 
