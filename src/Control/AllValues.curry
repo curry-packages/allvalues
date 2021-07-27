@@ -7,7 +7,7 @@
 --- in package `setfunctions`), which should be used.
 ---
 --- @author Michael Hanus
---- @version June 2021
+--- @version July 2021
 ------------------------------------------------------------------------------
 {-# LANGUAGE CPP #-}
 
@@ -32,7 +32,8 @@ import qualified Control.Findall as CF
 --- Conceptually, all values are computed
 --- on a copy of the expression, i.e., the evaluation of the expression
 --- does not share any results. In PAKCS, the evaluation suspends
---- as long as the expression contains unbound variables.
+--- as long as the expression contains unbound variables or the computed
+--- values contain unbound variables.
 getAllValues :: a -> IO [a]
 getAllValues e = return (allValues e)
 
@@ -41,7 +42,8 @@ getAllValues e = return (allValues e)
 --- Conceptually, the value is computed on a copy
 --- of the expression, i.e., the evaluation of the expression does not share
 --- any results. In PAKCS, the evaluation suspends as long as the expression
---- contains unbound variables.
+--- contains unbound variables or the computed
+--- value contains unbound variables.
 getOneValue :: a -> IO (Maybe a)
 getOneValue x = return (oneValue x)
 
@@ -50,7 +52,8 @@ getOneValue x = return (oneValue x)
 --- Conceptually, the value is computed on a copy
 --- of the expression, i.e., the evaluation of the expression does not share
 --- any results. In PAKCS, the evaluation suspends as long as the expression
---- contains unbound variables.
+--- contains unbound variables or the computed
+--- value contains unbound variables.
 getSomeValue :: a -> IO a
 getSomeValue e = return (someValue e)
 
@@ -96,7 +99,8 @@ naf c x = getOneSolution (lambda c x) >>= returner x
 --- Conceptually, all values are computed on a copy
 --- of the expression, i.e., the evaluation of the expression does not share
 --- any results. In PAKCS, the evaluation suspends as long as the expression
---- contains unbound variables.
+--- contains unbound variables or the computed
+--- values contain unbound variables.
 ---
 --- Note that this operation is not purely declarative since the ordering
 --- of the computed values depends on the ordering of the program rules.
@@ -108,7 +112,8 @@ allValues = CF.allValues
 --- Conceptually, the value is computed on a copy
 --- of the expression, i.e., the evaluation of the expression does not share
 --- any results. In PAKCS, the evaluation suspends as long as the expression
---- contains unbound variables.
+--- contains unbound variables or the computed
+--- value contains unbound variables.
 ---
 --- Note that this operation is not purely declarative since
 --- the computed value depends on the ordering of the program rules.
@@ -122,7 +127,8 @@ someValue = CF.someValue
 --- Conceptually, the value is computed on a copy
 --- of the expression, i.e., the evaluation of the expression does not share
 --- any results. In PAKCS, the evaluation suspends as long as the expression
---- contains unbound variables.
+--- contains unbound variables or the computed
+--- value contains unbound variables.
 ---
 --- Note that this operation is not purely declarative since
 --- the computed value depends on the ordering of the program rules.
@@ -134,7 +140,8 @@ oneValue = CF.oneValue
 --- Returns all values satisfying a predicate, i.e., all arguments such that
 --- the predicate applied to the argument can be evaluated to `True`.
 --- In PAKCS, the evaluation suspends as long as the predicate expression
---- contains unbound variables.
+--- contains unbound variables or the computed
+--- values contain unbound variables.
 ---
 --- Note that this operation is not purely declarative since the ordering
 --- of the computed values depends on the ordering of the program rules.
