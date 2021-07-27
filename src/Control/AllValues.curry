@@ -74,21 +74,15 @@ getOneSolution c = return (oneSolution c)
 --- @param x - an expression (a generator evaluable to various values)
 --- @param c - a constraint that should not be satisfied
 --- @return A list of all values of e such that (c e) is not provable
-getAllFailures :: Data a => a -> (a -> Bool) -> IO [a]
+getAllFailures :: a -> (a -> Bool) -> IO [a]
 getAllFailures generator test = do
   xs <- getAllValues generator
   failures <- mapM (naf test) xs
   return $ concat failures
 
 -- (naf c x) returns [x] if (c x) fails, and [] otherwise.
-naf :: Data a => (a -> Bool) -> a -> IO [a]
-naf c x = getOneSolution (lambda c x) >>= returner x
- where
-  lambda :: (a -> Bool) -> a -> () -> Bool
-  lambda p y _ = p y
-  
-  returner :: a -> Maybe b -> IO [a]
-  returner y mbl = return (maybe [y] (const []) mbl)
+naf :: (a -> Bool) -> a -> IO [a]
+naf c x = getOneValue (c x) >>= return . maybe [x] (const [])
 
 ------------------------------------------------------------------------------
 -- Primitive encapsulated search operations.
