@@ -7,12 +7,12 @@
 --- in package `setfunctions`), which should be used.
 ---
 --- @author Michael Hanus
---- @version July 2021
+--- @version November 2022
 ------------------------------------------------------------------------------
 {-# LANGUAGE CPP #-}
 
 module Control.AllValues
-  ( getAllValues, getOneValue, getSomeValue
+  ( getAllValues, getOneValue
   , getAllSolutions, getOneSolution, getAllFailures
   , allValues, someValue, oneValue
   , allSolutions, someSolution, oneSolution, isFail
@@ -46,16 +46,6 @@ getAllValues e = return (allValues e)
 --- value contains unbound variables.
 getOneValue :: a -> IO (Maybe a)
 getOneValue x = return (oneValue x)
-
---- Gets some value of an expression.
---- The expression must have a value, otherwise the computation fails.
---- Conceptually, the value is computed on a copy
---- of the expression, i.e., the evaluation of the expression does not share
---- any results. In PAKCS, the evaluation suspends as long as the expression
---- contains unbound variables or the computed
---- value contains unbound variables.
-getSomeValue :: a -> IO a
-getSomeValue e = return (someValue e)
 
 --- Gets all solutions to a constraint. Conceptually, all solutions
 --- are computed on a copy of the constraint, i.e., the evaluation
