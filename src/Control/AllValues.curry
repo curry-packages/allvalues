@@ -89,7 +89,7 @@ naf c x = getOneValue (c x) >>= return . maybe [x] (const [])
 --- Note that this operation is not purely declarative since the ordering
 --- of the computed values depends on the ordering of the program rules.
 allValues :: a -> [a]
-allValues = CF.allValues
+allValues x = CF.allValues x
 
 --- Returns some value for an expression.
 --- If the expression has no value, the computation fails.
@@ -104,7 +104,7 @@ allValues = CF.allValues
 --- Thus, this operation should be used only if the expression
 --- has a single value.
 someValue :: a -> a
-someValue = CF.someValue
+someValue x = CF.someValue x
 
 --- Returns just one value for an expression.
 --- If the expression has no value, `Nothing` is returned.
@@ -119,7 +119,7 @@ someValue = CF.someValue
 --- Thus, this operation should be used only if the expression
 --- has a single value.
 oneValue :: a -> Maybe a
-oneValue = CF.oneValue
+oneValue x = CF.oneValue x
 
 --- Returns all values satisfying a predicate, i.e., all arguments such that
 --- the predicate applied to the argument can be evaluated to `True`.
@@ -162,7 +162,7 @@ invertPred p | p x = x where x free
 --- Conceptually, the argument is evaluated on a copy, i.e.,
 --- even if the computation does not fail, it has not been evaluated.
 isFail :: a -> Bool
-isFail = CF.isFail
+isFail x = CF.isFail x
 
 #ifdef __PAKCS__
 ------------------------------------------------------------------------------
@@ -172,10 +172,10 @@ isFail = CF.isFail
 --- but it returns all values computable by term rewriting
 --- and ignores all computations that requires bindings for outside variables.
 rewriteAll :: a -> [a]
-rewriteAll = CF.rewriteAll
+rewriteAll x = CF.rewriteAll x
 
 --- Similarly to 'rewriteAll' but returns only some value computable
 --- by term rewriting. Returns `Nothing` if there is no such value.
 rewriteSome :: a -> Maybe a
-rewriteSome = CF.rewriteSome
+rewriteSome x = CF.rewriteSome x
 #endif
