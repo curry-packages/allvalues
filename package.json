@@ -1,6 +1,6 @@
 {
     "name": "allvalues",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "author": "Michael Hanus <mh@informatik.uni-kiel.de>",
     "synopsis": "Libraries with operations to strongly encapsulate non-deterministic computations",
     "category": [ "Logic", "Programming" ],

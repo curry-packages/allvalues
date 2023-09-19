@@ -1,4 +1,4 @@
--- Some examples for the use of the module AllSolutions
+-- Some examples for the use of the module Control.AllValues
 {-# OPTIONS_FRONTEND -Wno-overlapping #-}
 
 import Control.AllValues

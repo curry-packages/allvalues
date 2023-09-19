@@ -1,6 +1,16 @@
 -- Module SportsDB from Escher report
 
-import Control.Findall(allSolutions)
+import Control.AllValues ( allValues )
+
+allSolutions :: Data a => (a -> Bool) -> [a]
+allSolutions p = allValues (invertPred p)
+
+-- Inverts a predicate, i.e., compute all values for which the predicate
+-- succeeds.
+invertPred :: Data a => (a -> Bool) -> a
+invertPred p | p x = x where x free
+
+-----------------------------------------------------------------------------
 
 data Person = Mary | Bill | Joe | Fred
 

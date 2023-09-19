@@ -10,10 +10,6 @@ coin :: Int
 coin = 0
 coin = 1
 
--- Test for getAllSolutions
-testGetAllSolutions :: PropIO
-testGetAllSolutions = getAllSolutions (=:= (coin+coin)) `returns` [0,1,1,2]
-
 -- Test for getAllValues
 testGetAllValues :: PropIO
 testGetAllValues = getAllValues (coin+coin) `returns` [0,1,1,2]
