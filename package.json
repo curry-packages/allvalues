@@ -16,7 +16,7 @@
         "modules": [ "TestAllValues" ]
     },
     "source": {
-        "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/allvalues.git",
+        "git": "https://github.com/curry-packages/allvalues.git",
         "tag": "$version"
     }
 }
