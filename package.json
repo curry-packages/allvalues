@@ -3,7 +3,7 @@
     "version": "4.0.0",
     "author": "Michael Hanus <mh@informatik.uni-kiel.de>",
     "synopsis": "Libraries with operations to strongly encapsulate non-deterministic computations",
-    "category": [ "Logic", "Programming" ],
+    "category": [ "Logic", "Programming", "Control" ],
     "license": "BSD-3-Clause",
     "licenseFile": "LICENSE",
     "dependencies": {

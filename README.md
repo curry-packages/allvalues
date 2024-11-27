@@ -17,4 +17,9 @@ The Curry implementation Curry2Go uses a complete (parallel) search strategy.
 The library implements **strong encapsulation** as discussed in
 [this paper](http://www.informatik.uni-kiel.de/~mh/papers/JFLP04_findall.html).
 
+Note that the functionality of this package is largely contained
+in the modules `Control.Search/...` of the
+[base package](https://cpm.curry-lang.org/pkgs/base.html)
+since version 3.3.0, which is part of newer Curry distributions.
+
 --------------------------------------------------------------------------
